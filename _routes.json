@@ -1,0 +1,10 @@
+[
+   {
+       "pattern": "/api/*",
+       "middleware": "./worker.js"
+   },
+   {
+       "pattern": "*",
+       "fallthrough": true
+   }
+ ]

@@ -29,16 +29,7 @@ async function handleRequest(event) {
         }
     }
 
-
-   try {
-      // Serve static files
-      const response = await event.fetch(request);
-      return response;
-  } catch (error) {
-      console.error(error);
-      return new Response("Error fetching resource", { status: 500 });
-  }
-
+   return fetch(request);
 }
 
 
