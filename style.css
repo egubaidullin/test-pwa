@@ -1,0 +1,18 @@
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+#search-container {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 8px;
+}
+
+#search-button {
+    padding: 8px;
+}
