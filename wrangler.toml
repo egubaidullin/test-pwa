@@ -1,0 +1,7 @@
+name = "emergency-contact-pwa"
+compatibility_date = "2023-07-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "emergency-db"
+database_id = "557489c3-8c94-415d-ae2e-dcb50f39debd"

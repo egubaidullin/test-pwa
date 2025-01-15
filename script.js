@@ -4,7 +4,7 @@ const map = L.map('map').setView([0, 0], 2); // Default view
 // Add OpenStreetMap tiles
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 // Get user's location
@@ -37,7 +37,7 @@ async function reverseGeocode(latitude, longitude) {
 // Fetch emergency services from the Cloudflare Worker
 async function fetchEmergencyServices(latitude, longitude) {
     try {
-        const response = await fetch(`/worker?latitude=${latitude}&longitude=${longitude}`);
+        const response = await fetch(`/api/worker?latitude=${latitude}&longitude=${longitude}`);
         const data = await response.json();
         data.forEach(service => {
            L.marker([service.latitude, service.longitude])

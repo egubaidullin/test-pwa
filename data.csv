@@ -1,4 +1,10 @@
 id,name,address,latitude,longitude,phone,service_type
-1,"General Hospital","456 Oak St",34.0522,-118.2437,"555-5678","Hospital"
-2,"Fire Station 1","789 Pine St",34.0622,-118.2537,"555-9012","Fire Station"
-3,"Police Station HQ","101 Main Ave",34.0422,-118.2337,"555-3456","Police Station"
+1,Poipet Hospital,National Route 5 Poipet,13.6665,102.5545,054 966 582,Hospital
+2,Poipet Fire Station,National Route 5 Poipet,13.6675,102.5535,054 966 583,Fire Station
+3,Poipet Police Station,National Route 5 Poipet,13.6655,102.5555,054 966 584,Police Station
+4,Aranyaprathet Hospital,Aranyaprathet Sa Kaeo,13.6965,102.5015,037 230 300,Hospital
+5,Aranyaprathet Fire Station,Aranyaprathet Sa Kaeo,13.6975,102.5025,037 230 301,Fire Station
+6,Aranyaprathet Police Station,Aranyaprathet Sa Kaeo,13.6955,102.5005,037 230 302,Police Station
+7,Sample Hospital,456 Oak St,34.0522,-118.2437,555 5678,Hospital
+8,Fire Station 1,789 Pine St,34.0622,-118.2537,555 9012,Fire Station
+9,Police Station HQ,101 Main Ave,34.0422,-118.2337,555 3456,Police Station

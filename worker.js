@@ -1,28 +1,43 @@
 addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request, event));
+    event.respondWith(handleRequest(event));
 });
 
 
-async function handleRequest(request, event) {
-    const { searchParams } = new URL(request.url);
-    const latitude = searchParams.get('latitude');
-    const longitude = searchParams.get('longitude');
+async function handleRequest(event) {
+   const request = event.request;
+   const url = new URL(request.url);
 
-    if (!latitude || !longitude) {
-        return new Response("Missing latitude or longitude", { status: 400 });
+    if (url.pathname.startsWith('/api/worker')) {
+        const { searchParams } = new URL(request.url);
+         const latitude = searchParams.get('latitude');
+         const longitude = searchParams.get('longitude');
+
+        if (!latitude || !longitude) {
+            return new Response("Missing latitude or longitude", { status: 400 });
+        }
+
+
+        try {
+             const emergencyServices = await getEmergencyServices(latitude, longitude, event);
+             return new Response(JSON.stringify(emergencyServices), {
+                 headers: { 'Content-Type': 'application/json' },
+             });
+        }
+         catch(error) {
+            console.error(error)
+            return new Response("Error fetching emergency services", { status: 500 });
+        }
     }
 
 
-    try {
-        const emergencyServices = await getEmergencyServices(latitude, longitude, event);
-         return new Response(JSON.stringify(emergencyServices), {
-            headers: { 'Content-Type': 'application/json' },
-        });
-    }
-     catch(error) {
-         console.error(error)
-         return new Response("Error fetching emergency services", { status: 500 });
-    }
+   try {
+      // Serve static files
+      const response = await event.fetch(request);
+      return response;
+  } catch (error) {
+      console.error(error);
+      return new Response("Error fetching resource", { status: 500 });
+  }
 
 }
 
